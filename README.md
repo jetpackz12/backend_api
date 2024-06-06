@@ -26,5 +26,5 @@ php artisan migrate
 # Serve the Application
 
 ```
-php artisan serve --port=6969
+php artisan serve --host=10.0.0.224 --port=6969
 ```
