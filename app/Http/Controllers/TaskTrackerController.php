@@ -56,9 +56,11 @@ class TaskTrackerController extends Controller
     {
         $search = $request->input('search');
 
-        $task = DB::table('task_trackers')->where('task', 'LIKE', '%'.$search.'%')->orWhere('date_time', 'LIKE', '%'.$search.'%')->orderBy('id', 'desc')->paginate(5);
+        $render_data = [
+            'tasks' => DB::table('task_trackers')->where('task', 'LIKE', '%'.$search.'%')->orWhere('date_time', 'LIKE', '%'.$search.'%')->orderBy('id', 'desc')->paginate(5)
+        ];
 
-        return response()->json($task);
+        return response()->json($render_data);
     }
 
     /**
